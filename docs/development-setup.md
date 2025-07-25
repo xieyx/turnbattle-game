@@ -23,6 +23,11 @@ go mod tidy
    GRANT ALL PRIVILEGES ON DATABASE turnbattle TO turnbattle_user;
    ```
 
+3. 运行数据库迁移:
+   ```bash
+   psql -U turnbattle_user -d turnbattle -f migrations/001_create_users_table.sql
+   ```
+
 ### 运行服务端
 ```bash
 cd server
@@ -47,3 +52,19 @@ npm start
 - VSCode with Go and TypeScript extensions
 - Postman for API testing
 - pgAdmin for database management
+
+## 项目结构说明
+
+### 服务端 (Go)
+- `main.go`: 服务端入口文件
+- `models/`: 数据模型定义
+- `services/`: 业务逻辑实现
+- `middleware/`: 中间件
+- `utils/`: 工具函数
+- `migrations/`: 数据库迁移脚本
+
+### 客户端 (React)
+- `src/components/`: 可复用的UI组件
+- `src/pages/`: 页面组件
+- `src/services/`: API服务层
+- `src/utils/`: 客户端工具函数
